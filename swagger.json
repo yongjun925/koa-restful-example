@@ -1,0 +1,108 @@
+{
+  "info": {
+    "title": "Example API",
+    "description": "API for creating and editing examples.",
+    "version": "1.1"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "users",
+      "description": "A User represents a person who can login \n      and take actions subject to their granted permissions."
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "paths": {
+    "/user/{_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string",
+                  "description": "User id"
+                }
+              },
+              "description": "User object"
+            },
+            "description": "User object"
+          }
+        },
+        "parameters": [
+          {
+            "type": "string",
+            "pattern": "/^[a-zA-Z0-9]*$/",
+            "maxLength": 24,
+            "description": "User id",
+            "name": "_id",
+            "in": "path"
+          }
+        ],
+        "summary": "获取用户信息",
+        "description": "Note: \nSensitive data can only be viewed by the `corresponding user` or `Admin`.",
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/signup": {
+      "post": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string",
+                  "description": "Newly created user id"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "username",
+                "password"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "pattern": "/^[a-zA-Z0-9]*$/",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "password": {
+                  "type": "string",
+                  "pattern": "/^[a-zA-Z0-9]*$/",
+                  "minLength": 6,
+                  "maxLength": 30
+                }
+              }
+            }
+          }
+        ],
+        "summary": "用户注册",
+        "description": "使用用户名和密码注册。",
+        "tags": [
+          "users"
+        ]
+      }
+    }
+  }
+}

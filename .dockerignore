@@ -1,0 +1,12 @@
+.DS_Store
+.vscode
+.git
+
+# node modules
+node_modules/
+
+# logs
+*.log
+
+# local config
+config/local-*.js
