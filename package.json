@@ -31,7 +31,7 @@
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.2",
     "koa-views": "^6.1.3",
-    "mongoose": "^5.0.6",
+    "mongoose": "^5.7.5",
     "node-schedule": "^1.3.0",
     "statuses": "^1.4.0",
     "swagger-injector": "^4.0.0"
